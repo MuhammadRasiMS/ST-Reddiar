@@ -2049,8 +2049,8 @@ pre code {
 }
 
 .row {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: 4px;
+    margin-left: 4px;
     border-collapse: separate;
     border-spacing: 0 15px;
 }
@@ -3726,6 +3726,7 @@ textarea.input-lg {
     border: 1px solid transparent;
     border-radius: 4px
 }
+
 
 .btn.active.focus,
 .btn.active:focus,
@@ -18861,6 +18862,7 @@ section.banner-section {
 }
 
 }
+
 
 
 

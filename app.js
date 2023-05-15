@@ -1,5 +1,9 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors =  require('cors');
+require("dotenv").config({ path: ".env" });
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -16,8 +20,18 @@ const hbs = exbs.create({
   extname: 'hbs', defaultLayout: 'layout',
   layoutsDir: __dirname + '/views/layout/',
   partialsDir: __dirname + '/views/partials/',
-  helpers:{}
 })
+
+const start = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL);
+    console.log('Database connection established')
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
+start();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,9 +54,9 @@ app.use((req,res,next) => {
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);
 
-app.get("/*", (req, res) => {
-  res.render("notfound");
-});
+// app.get("/*", (req, res) => {
+//   res.render("notfound");
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,5 +73,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
