@@ -12,6 +12,8 @@ var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var exbs = require('express-handlebars');
 
+var db = require('./config/db')
+
 var session = require('express-session');
 
 var app = express();
@@ -22,16 +24,24 @@ const hbs = exbs.create({
   partialsDir: __dirname + '/views/partials/',
 })
 
-const start = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URL);
-    console.log('Database connection established')
-  } catch (e) {
-    console.log(e.message);
-  }
-}
+// const start = async () => {
+//   try {
+//     await mongoose.connect(process.env.MONGO_URL);
+//     console.log('Database connection established')
+//   } catch (e) {
+//     console.log(e.message);
+//   }
+// }
 
-start();
+// start();
+
+db.connect((err) => {
+  if (err) {
+    console.log("connection error" + err);
+  } else {
+    console.log("database connected");
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,6 +55,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: "key", resave: false, saveUninitialized: false }));
+app.use(session({secret: "key", cookie: {maxAge:6000000}}))
 
 app.use((req,res,next) => {
   res.set('cache-control', 'no-store')
@@ -54,9 +65,9 @@ app.use((req,res,next) => {
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);
 
-// app.get("/*", (req, res) => {
-//   res.render("notfound");
-// });
+app.get("/*", (req, res) => {
+  res.render("notfound");
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
