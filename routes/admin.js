@@ -7,7 +7,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', (req, res, next) => {
-  res.render('admin/login' );
+  res.render('admin/login', {admin:true} );
+})
+
+router.get('/service', (req,res)=>{
+  res.render('admin/service', {admin:true} );
+})
+
+router.get('/add-service', (req,res)=> {
+  res.render('admin/add-service', {admin:true});
 })
 
 module.exports = router;

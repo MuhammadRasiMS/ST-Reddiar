@@ -15669,7 +15669,7 @@ label {
   letter-spacing: 1px;
   line-height: 32px;
   margin: 30px auto 18px;
-  text-transform: lowercase;
+  text-transform: unset;
   width: 782px;
 }
 .coll-middle {
