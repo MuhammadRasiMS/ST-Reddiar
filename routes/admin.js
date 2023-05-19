@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {upload} = require('../public/javascripts/fileUpload')
+let adminHelpers = require('../helpers/admin-helpers');
 
 let admin = {
   email: 'admin@gmail.com',
@@ -23,7 +24,7 @@ router.get('/login', (req, res, next) => {
   if(req.session.adminLoggedIn){
     res.redirect('/admin')
   } else {
-    res.render('admin/login', {adminLoginErr: req.session.adminLoginErr});
+    res.render('admin/login', {adminLoginErr: req.session.adminLoginErr, login:true});
     adminLoginErr = false;
   }
 })
@@ -45,15 +46,17 @@ router.get('/logout', (req,res) => {
   res.redirect('admin/login');
 });
 
-router.get('/service', verifyAdmin, (req,res)=>{
-  res.render('admin/service', {admin:true} );
-})
+router.get("/service", verifyAdmin, (req, res) => {
+  adminHelpers.getServicesDetails().then((service) => {
+    res.render("admin/service", { service, admin: true });
+  });
+});
 
 router.get('/add-service', verifyAdmin, (req,res)=> {
-  res.render('admin/add-service', {admin:true});
-})
+    res.render('admin/add-service', {admin:true});
+});
 
-router.post('/add-service', verifyAdmin, upload.any('image'),  (req,res)=>{
+router.post('/add-service', upload.any('image'),  (req,res)=>{
   const files = req.files;
   const file = files.map((file) => {
     return file
@@ -63,8 +66,40 @@ router.post('/add-service', verifyAdmin, upload.any('image'),  (req,res)=>{
   })
   const service = req.body
   service.img = fileName;
-
-  res.redirect('admin/service');
+  adminHelpers.addService(req.body).then(response => {
+    console.log(response);
+    res.redirect('/admin/service');
+  })
 });
+
+router.get('/delete-service/:id', verifyAdmin, (req, res)=>{
+  let serviceId = req.params.id;
+  adminHelpers.deleteService(serviceId).then(()=>{
+    res.redirect('/admin/service');
+  })
+})
+
+router.get('/edit-service/:id', verifyAdmin, (req, res) => {
+  adminHelpers.getServiceDetails(req.params.id).then(serviceData => {
+    console.log(serviceData);
+    res.render('admin/edit-service', {serviceData: serviceData, admin:true})
+  })
+})
+
+router.post('/edit-service/:id', upload.any('image'), async(req,res) => {
+  let id = req.params.id;
+  let oldId = await adminHelpers.getServiceDetails(id);
+  const file = req.files;
+  let filename;
+  req.body.img =
+    req.files.length != 0
+      ? (filename = file.map((file) => {
+          return file.filename;
+        }))
+      : oldId.img;
+  adminHelpers.updateService(req.params.id, req.body).then(()=>{
+    res.redirect('/admin/service');
+  })
+})
 
 module.exports = router;

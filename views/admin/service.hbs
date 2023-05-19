@@ -26,21 +26,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{!-- {{#each products}} --}}
+                                            {{#each service}}
                                             <tr>
                                                 <td></td>
-                                                <td>Flyers</td>
-                                                <td><img width="50px" height="50px" src="/images/product/{{this.img.[0]}}"
+                                                <td>{{this.name}}</td>
+                                                <td><img width="50px" height="50px" src="/images/services/{{this.img.[0]}}"
                                                         style="height: 50px; width: 45px;" alt=""></td>
                                                 <td><a style="color: white; text-decoration: none;"
-                                                        href="/admin/edit-product/{{this._id}}"><button
+                                                        href="/admin/edit-service/{{this._id}}"><button
                                                             class="btn btn-success">Edit</button></a>
-                                                    <a style="color: white; text-decoration: none;" href="/admin/delete-product/{{this._id}}"
+                                                    <a style="color: white; text-decoration: none;" href="/admin/delete-service/{{this._id}}"
                                                         onclick="return confirm('do you want to delete {{this.name}}')"><button
                                                             class="btn btn-danger">delete</button></a>
                                                 </td>
                                             </tr>
-                                            {{!-- {{/each}} --}}
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>

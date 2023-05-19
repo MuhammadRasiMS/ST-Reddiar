@@ -7,12 +7,12 @@ mongoose.set('strictQuery', false);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const db = require('./config/connection')
 
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var exbs = require('express-handlebars');
 
-var db = require('./config/db')
 
 var session = require('express-session');
 
@@ -35,13 +35,24 @@ const hbs = exbs.create({
 
 // start();
 
-db.connect((err) => {
-  if (err) {
-    console.log("connection error" + err);
-  } else {
-    console.log("database connected");
-  }
-});
+// db.connect((err) => {
+//   if (err) {
+//     console.log("connection error" + err);
+//   } else {
+//     console.log("database connected");
+//   }
+// });
+
+
+// db.connect(() => {
+//   const client = db.getClient();
+//   // Use the client to perform database operations
+//   // For example:
+//   const collection = client.db().collection("STReddiar");
+//   // Perform operations on the collection
+// });
+
+db.connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,8 +65,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: "key", resave: false, saveUninitialized: false }));
-app.use(session({secret: "key", cookie: {maxAge:6000000}}))
+app.use(session({ secret: "key", resave: false, saveUninitialized: false /*cookie: {maxAge:6000000}*/ }));
 
 app.use((req,res,next) => {
   res.set('cache-control', 'no-store')
