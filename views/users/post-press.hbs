@@ -2,10 +2,10 @@
 <section class="page-header" style="background-image: url(images/bg_prepress.jpg)">
     <div class="overlay">
         <div class="container">
-            <h2 class="page-title pull-left">Pre-press</h2>
+            <h2 class="page-title pull-left">Post-press</h2>
             <ol class="breadcrumb pull-right">
                 <li><a href="index.html">Infrastructure</a></li>
-                <li class="active">Pre-press</li>
+                <li class="active">Post-press</li>
             </ol>
         </div>
     </div>
@@ -15,27 +15,27 @@
 <!-- Start page-container  -->
 <div class="page-container blog-page">
 
+    {{#each postpress}}
     <div class="container1">
         <div class="row">
             <div Class="h2-c-ifo row" id="about-freelancer">
                 <div class="freelancer-images col-sm-12 col-lg-6">
                     <div class="provide_image1">
-                        <img alt="" src="images/ctpmachine.jpg" class="imagese">
+                        <img alt="" src="images/postpress/{{this.img.[0]}}" class="imagese">
                     </div>
                 </div>
                 <div class="company-info1 h2-c-ifo col-sm-12 col-lg-6">
-                    <h5 class="about-company-title"> Lamination </h5>
-
+                    <h5 class="about-company-title"> {{this.heading}} </h5>
+    
                     <div class="creative-text">
-                        <h2>GLOSSY, MATTE, 3D, UV</h2>
-                        <p>Computer-to-plate (CTP) is an imaging technology used in modern printing processes. In this
-                            technology, an image created
-                            in a Desktop Publishing (DTP) application is output directly to a printing plate.</p>
+                        <h2>{{this.subheading}}</h2>
+                        <p>{{this.description}}</p>
                     </div>
                 </div><!-- / company-info -->
             </div>
         </div>
     </div>
+    {{/each}}
 
 </div>
 <!--/ end page-container  -->

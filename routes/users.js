@@ -24,16 +24,19 @@ router.get("/contact", (req, res) => {
   res.render("users/contact", { user: true });
 });
 
-router.get('/pre-press', (req, res) => {
-  res.render("users/pre-press", { user: true });
+router.get('/pre-press', async(req, res) => {
+  let prepress = await userHelpers.getPrePressDetails();
+  res.render("users/pre-press", { user: true, prepress });
 });
 
-router.get("/press", (req, res) => {
-  res.render("users/press", { user: true });
+router.get("/press", async(req, res) => {
+  let press = await userHelpers.getPressDetails();
+  res.render("users/press", { user: true, press });
 });
 
-router.get("/post-press", (req, res) => {
-  res.render("users/post-press", { user: true });
+router.get("/post-press", async(req, res) => {
+  let postpress = await userHelpers.getPostPressDetails();
+  res.render("users/post-press", { user: true, postpress });
 });
 
 module.exports = router;

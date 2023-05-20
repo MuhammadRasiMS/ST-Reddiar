@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {upload} = require('../public/javascripts/fileUpload')
+const {upload, upload2, upload3, upload4} = require('../public/javascripts/fileUpload')
 let adminHelpers = require('../helpers/admin-helpers');
 
 let admin = {
@@ -101,5 +101,187 @@ router.post('/edit-service/:id', upload.any('image'), async(req,res) => {
     res.redirect('/admin/service');
   })
 })
+//---------------------prepress---------------------------------------
+router.get('/pre-press', verifyAdmin, (req, res) => {
+  adminHelpers.getPrePressesDetails().then((prepress) => {
+    res.render('admin/pre-press', {admin:true, prepress})
+  })
+})
+
+router.get("/add-pre-press", verifyAdmin, (req, res) => {
+  res.render("admin/add-pre-press", { admin: true });
+});
+
+router.post("/add-pre-press", upload2.any("image"), (req, res) => {
+  const files = req.files;
+  const file = files.map((file) => {
+    return file;
+  });
+  const fileName = file.map((file) => {
+    return file.filename;
+  });
+  const prepress = req.body;
+  prepress.img = fileName;
+  adminHelpers.addPrePress(req.body).then((response) => {
+    console.log(response);
+    res.redirect("/admin/pre-press");
+  });
+});
+
+router.get("/delete-prepress/:id", verifyAdmin, (req, res) => {
+  let prepressId = req.params.id;
+  adminHelpers.deletePrePress(prepressId).then(() => {
+    res.redirect("/admin/pre-press");
+  });
+});
+
+router.get("/edit-prepress/:id", verifyAdmin, (req, res) => {
+  adminHelpers.getPrePressDetails(req.params.id).then((prepressData) => {
+    res.render("admin/edit-pre-press", {
+      prepressData: prepressData,
+      admin: true,
+    });
+  });
+});
+
+router.post("/edit-prepress/:id", upload2.any("image"), async (req, res) => {
+  let id = req.params.id;
+  let oldId = await adminHelpers.getPrePressDetails(id);
+  const file = req.files;
+  let filename;
+  req.body.img =
+    req.files.length != 0
+      ? (filename = file.map((file) => {
+          return file.filename;
+        }))
+      : oldId.img;
+  adminHelpers.updatePrePress(req.params.id, req.body).then(() => {
+    res.redirect("/admin/pre-press");
+  });
+});
+
+//------------------------------press-----------------------------------------------------------
+
+router.get("/press", verifyAdmin, (req, res) => {
+  adminHelpers.getPressesDetails().then((press) => {
+    res.render("admin/press", { admin: true, press });
+  });
+});
+
+router.get("/add-press", verifyAdmin, (req, res) => {
+  res.render("admin/add-press", { admin: true });
+});
+
+router.post("/add-press", upload3.any("image"), (req, res) => {
+  const files = req.files;
+  const file = files.map((file) => {
+    return file;
+  });
+  const fileName = file.map((file) => {
+    return file.filename;
+  });
+  const press = req.body;
+  press.img = fileName;
+  adminHelpers.addPress(req.body).then((response) => {
+    res.redirect("/admin/press");
+  });
+});
+
+router.get("/delete-press/:id", verifyAdmin, (req, res) => {
+  let pressId = req.params.id;
+  adminHelpers.deletePress(pressId).then(() => {
+    res.redirect("/admin/press");
+  });
+});
+
+router.get("/edit-press/:id", verifyAdmin, (req, res) => {
+  adminHelpers.getPressDetails(req.params.id).then((pressData) => {
+    res.render("admin/edit-press", {
+      pressData: pressData,
+      admin: true,
+    });
+  });
+});
+
+router.post("/edit-press/:id", upload3.any("image"), async (req, res) => {
+  let id = req.params.id;
+  let oldId = await adminHelpers.getPressDetails(id);
+  const file = req.files;
+  let filename;
+  req.body.img =
+    req.files.length != 0
+      ? (filename = file.map((file) => {
+          return file.filename;
+        }))
+      : oldId.img;
+  adminHelpers.updatePress(req.params.id, req.body).then(() => {
+    res.redirect("/admin/press");
+  });
+});
+
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------postpress------------------------------------------------
+
+router.get("/post-press", verifyAdmin, (req, res) => {
+  adminHelpers.getPostPressesDetails().then((postpress) => {
+    res.render("admin/post-press", { admin: true, postpress });
+  });
+});
+
+router.get("/add-post-press", verifyAdmin, (req, res) => {
+  res.render("admin/add-post-press", { admin: true });
+});
+
+router.post("/add-post-press", upload4.any("image"), (req, res) => {
+  const files = req.files;
+  const file = files.map((file) => {
+    return file;
+  });
+  const fileName = file.map((file) => {
+    return file.filename;
+  });
+  const postpress = req.body;
+  postpress.img = fileName;
+  adminHelpers.addPostPress(req.body).then((response) => {
+    res.redirect("/admin/post-press");
+  });
+});
+
+router.get("/delete-postpress/:id", verifyAdmin, (req, res) => {
+  let postpressId = req.params.id;
+  adminHelpers.deletePostPress(postpressId).then(() => {
+    res.redirect("/admin/post-press");
+  });
+});
+
+router.get("/edit-postpress/:id", verifyAdmin, (req, res) => {
+  adminHelpers.getPostPressDetails(req.params.id).then((postpressData) => {
+    res.render("admin/edit-post-press", {
+      postpressData: postpressData,
+      admin: true,
+    });
+  });
+});
+
+router.post("/edit-postpress/:id", upload4.any("image"), async (req, res) => {
+  let id = req.params.id;
+  let oldId = await adminHelpers.getPostPressDetails(id);
+  const file = req.files;
+  let filename;
+  req.body.img =
+    req.files.length != 0
+      ? (filename = file.map((file) => {
+          return file.filename;
+        }))
+      : oldId.img;
+  adminHelpers.updatePostPress(req.params.id, req.body).then(() => {
+    res.redirect("/admin/post-press");
+  });
+});
+
+//-----------------------------------------------------------------------------------------
+
+
 
 module.exports = router;

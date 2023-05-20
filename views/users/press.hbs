@@ -14,30 +14,6 @@
 
 <!-- Start page-container  -->
 <div class="page-container blog-page">
-    
-
-    <div class="container1">
-        <div class="row">
-            <div Class="h2-c-ifo row" id="about-freelancer">
-                <div class="freelancer-images col-sm-12 col-lg-6">
-                    <div class="provide_image1">
-                        <img alt="" src="images/sheetfed.jpg" class="imagese">
-                    </div>
-                </div>
-                <div class="company-info1 h2-c-ifo col-sm-12 col-lg-6">
-                    <h5 class="about-company-title"> Sheetfed machine </h5>
-
-                    <div class="creative-text">
-                        <h2>Komori lithrone 28</h2>
-                        <p>Sheet-fed printing is a premium quality of lithography, which utilizes manually fed sheets of paper or a continuous feed
-                        roll that can be cut as needed. The name says it all, the paper is being fed into the printer. Sheet-fed printing is a high-quality printing process that either uses individual sheets of paper that are manually fed
-                        into the printing machine or a roll of paper that offers a continuous feed and can be cut during the printing process.
-                        In other words, you're “feeding” paper into the machine.</p>
-                    </div>
-                </div><!-- / company-info -->
-            </div>
-        </div>
-    </div>
 
     <div class="container1">
         <div class="row">
@@ -63,6 +39,28 @@
         </div>
     </div>
 
+
+{{#each press}}
+<div class="container1">
+    <div class="row">
+        <div Class="h2-c-ifo row" id="about-freelancer">
+            <div class="freelancer-images col-sm-12 col-lg-6">
+                <div class="provide_image1">
+                    <img alt="" src="images/press/{{this.img.[0]}}" class="imagese">
+                </div>
+            </div>
+            <div class="company-info1 h2-c-ifo col-sm-12 col-lg-6">
+                <h5 class="about-company-title"> {{this.heading}} </h5>
+
+                <div class="creative-text">
+                    <h2>{{this.subheading}}</h2>
+                    <p>{{this.description}}</p>
+                </div>
+            </div><!-- / company-info -->
+        </div>
+    </div>
+</div>
+{{/each}}
 
 </div>
 <!--/ end page-container  -->

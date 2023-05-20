@@ -14,47 +14,28 @@
 
     <!-- Start page-container  -->
     <div class="page-container blog-page">
-        <div class="container1">
-            <div class="row">
-                    <div Class="h2-c-ifo row" id="about-freelancer">
-                        <div class="freelancer-images col-sm-12 col-lg-6">
-                            <div class="provide_image1">
-                                <img alt="" src="images/prepress_design.jpg" class="imagese">
-                            </div>
-                        </div>
-                        <div class="company-info1 h2-c-ifo col-sm-12 col-lg-6">
-                            <h5 class="about-company-title"> Design </h5>
-                            <div class="creative-text">
-                            We design the graphics, with or without the customer’s agency. This means that we can offer a complete package — all the
-                            way from the design phase to delivering finished labels. As a customer, you don't need to look for another partner for
-                            the design parts. Therefore, we can guarantee customer-unique values such as lower total costs, attractive labels,
-                            intelligent labelling, short and fast delivery times and holistic concepts for maximal business value.
-                            </div>
-                        </div><!-- / company-info -->
-                    </div><!-- / company-info -->
-            </div>
-        </div>
-
+        
+        {{#each prepress}}
         <div class="container1">
             <div class="row">
                 <div Class="h2-c-ifo row" id="about-freelancer">
                     <div class="freelancer-images col-sm-12 col-lg-6">
                         <div class="provide_image1">
-                            <img alt="" src="images/ctpmachine.jpg" class="imagese">
+                            <img alt="" src="images/prepress/{{this.img.[0]}}" class="imagese">
                         </div>
                     </div>
                     <div class="company-info1 h2-c-ifo col-sm-12 col-lg-6">
-                        <h5 class="about-company-title"> CTP Thermal machines </h5>
+                        <h5 class="about-company-title"> {{this.heading}} </h5>
         
                         <div class="creative-text">
-                            <h2>KODAK, TECHNOVA</h2>
-                            <p>Computer-to-plate (CTP) is an imaging technology used in modern printing processes. In this technology, an image created
-                            in a Desktop Publishing (DTP) application is output directly to a printing plate.</p>
+                            <h2>{{this.subheading}}</h2>
+                            <p>{{this.description}}</p>
                         </div>
                     </div><!-- / company-info -->
                 </div>
             </div>
         </div>
-            
+        {{/each}}    
+        
     </div>
     <!--/ end page-container  -->

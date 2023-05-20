@@ -1,0 +1,69 @@
+<main id="main" class="main">
+
+    <div class="pagetitle">
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Edit Post press</h5>
+
+                            <!-- General Form Elements -->
+                            <form action="/admin/edit-postpress/{{postpressData._id}}" method="POST" enctype="multipart/form-data">
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Heading</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="heading" value="{{postpressData.heading}}" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Sub heading</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="subheading" value="{{postpressData.subheading}}" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" value="{{postpressData.description}}" name="description"
+                                            ></input>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="formFile" class="form-label">Image</label>
+                                    <input type="file" name="image" class="form-control" id="image" onchange="viewImage(event)">
+                                    <img class="mt-3" id="imgView1" src="/images/postpress/{{postpressData.img}}" style="height: 50px; width: 50px;"
+                                        alt="">
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label">Submit Button</label>
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                                    </div>
+                                </div>
+
+                            </form><!-- End General Form Elements -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+</main>
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView1').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

@@ -18345,6 +18345,7 @@ html body .bg-megna {
 .wrap-feature10-box {
   color: #ffffff;
   margin: 0 auto;
+  border-radius: 0 auto;
   max-width: 450px;
   padding: 30px 5px;
   text-align: center;

@@ -13,4 +13,37 @@ module.exports = {
       resolve(service);
     });
   },
+
+  getPrePressDetails: () => {
+    return new Promise(async (resolve, reject) => {
+      let prepress = await db
+        .get()
+        .collection(collection.PREPRESS_COLLECTION)
+        .find()
+        .toArray();
+      resolve(prepress);
+    });
+  },
+
+  getPressDetails: () => {
+    return new Promise(async (resolve, reject) => {
+      let press = await db
+        .get()
+        .collection(collection.PRESS_COLLECTION)
+        .find()
+        .toArray();
+      resolve(press);
+    });
+  },
+
+  getPostPressDetails: () => {
+    return new Promise(async (resolve, reject) => {
+      let postpress = await db
+        .get()
+        .collection(collection.POSTPRESS_COLLECTION)
+        .find()
+        .toArray();
+      resolve(postpress);
+    });
+  },
 };
