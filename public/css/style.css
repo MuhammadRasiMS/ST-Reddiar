@@ -2039,6 +2039,7 @@ pre code {
     .container {
         width: 1170px
     }
+    
 }
 
 .container-fluid {
@@ -15409,6 +15410,12 @@ img {
     height: auto
 }
 
+.provide_image1 img {
+    vertical-align: bottom;
+    max-width: 80%;
+    height: auto
+}
+
 a {
     text-decoration: none;
     color: #fe0000
@@ -18242,9 +18249,6 @@ section.banner-section {
 }
 
 
-
-
-
 .h2-c-ifo .provide_images::after {
     border: 10px solid rgba(0, 0, 0, 0.05);
     content: "";
@@ -18352,7 +18356,7 @@ html body .bg-megna {
    margin-top: 7px;
 }
 .bg-primary {
-  background-color: #fe0000 !important;
+  background-color: #a60202 !important;
   color: #fff;
   margin-top: 7px;
 }
@@ -18562,6 +18566,44 @@ html body .bg-megna {
 }
 
 
+.h2-c-ifo .provide_image1::after {
+    border: 7px solid rgba(160, 3, 3, 0.58);
+    content: "";
+    display: block;
+    height: 100%;
+    left: -70px;
+    position: absolute;
+    top: -70px;
+    transition: all 300ms linear 0s;
+    width: 80%;
+    z-index: 1;
+}
+.h2-c-ifo .provide_image1 {
+    cursor: pointer;
+    float: right;
+    max-width: 502px;
+    position: relative;
+    transition: all 300ms linear 0s;
+}
+.provide_image1 .imagese {
+    position: relative;
+    z-index: 2;
+    margin-left: -25px;
+    margin-top: -25px;
+
+}
+
+
+.h2-c-ifo .company-info1 {
+    margin-left: -60px;
+    margin-top: -117px;
+}
+
+.container1 {
+        width: 1500px;
+    }
+
+
 /*--------- Medium devices -----------*/
 @media (min-width: 992px) and (max-width: 1200px) {
 
@@ -18612,7 +18654,7 @@ html body .bg-megna {
   cursor: pointer;
   float: inherit;
   margin-left: 74px;
-  max-width: 73%;
+  max-width: 100%;
   position: relative;
   transition: all 300ms linear 0s;
 }
@@ -18636,30 +18678,6 @@ html body .bg-megna {
 .widgetized-footer .col-xs-12.col-sm-6.col-md-3:nth-child(2) {
   padding-left: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
