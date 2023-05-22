@@ -2007,7 +2007,7 @@ pre code {
     overflow-y: scroll
 }
 
-.container {
+.container, container1 {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -2015,7 +2015,7 @@ pre code {
 }
 
 @media(min-width:768px) {
-    .container {
+    .container, container1 {
         width: 750px
     }
 	.banner-section .slide-content p {
@@ -2030,19 +2030,19 @@ pre code {
 }
 
 @media(min-width:992px) {
-    .container {
+    .container, container1 {
         width: 970px
     }
 }
 
 @media(min-width:1200px) {
-    .container {
+    .container, container1 {
         width: 1170px
     }
     
 }
 
-.container-fluid {
+.container, container-fluid {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -5137,19 +5137,19 @@ textarea.input-group-sm>.input-group-btn>.btn {
     }
 }
 
-.container-fluid>.navbar-collapse,
-.container-fluid>.navbar-header,
-.container>.navbar-collapse,
-.container>.navbar-header {
+.container, container-fluid>.navbar-collapse,
+.container, container-fluid>.navbar-header,
+.container, container1>.navbar-collapse,
+.container, container1>.navbar-header {
     margin-right: -15px;
     margin-left: -15px
 }
 
 @media(min-width:768px) {
-    .container-fluid>.navbar-collapse,
-    .container-fluid>.navbar-header,
-    .container>.navbar-collapse,
-    .container>.navbar-header {
+    .container, container-fluid>.navbar-collapse,
+    .container, container-fluid>.navbar-header,
+    .container, container1>.navbar-collapse,
+    .container, container1>.navbar-header {
         margin-right: 0;
         margin-left: 0
     }
@@ -5210,8 +5210,8 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 
 @media(min-width:768px) {
-    .navbar>.container .navbar-brand,
-    .navbar>.container-fluid .navbar-brand {
+    .navbar>.container, container1 .navbar-brand,
+    .navbar>.container, container-fluid .navbar-brand {
         margin-left: -15px
     }
 }
@@ -5714,7 +5714,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .breadcrumb>.active {
     color: #949494
 }
-.page-container.portfolio-page.gallery-popup {
+.page-container, container1.portfolio-page.gallery-popup {
   padding: 90px 0;
 }
 .pagination {
@@ -5727,7 +5727,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pagination>li {
     display: inline
 }
-.page-container.blog-page {
+.page-container, container1.blog-page {
   padding-bottom: 91px;
 }
 .pagination>li>a,
@@ -6035,14 +6035,14 @@ a.badge:hover {
     border-top-color: #d5d5d5
 }
 
-.container .jumbotron,
-.container-fluid .jumbotron {
+.container, container1 .jumbotron,
+.container, container-fluid .jumbotron {
     padding-right: 15px;
     padding-left: 15px;
     border-radius: 6px
 }
 
-.jumbotron .container {
+.jumbotron .container, container1 {
     max-width: 100%
 }
 
@@ -6051,8 +6051,8 @@ a.badge:hover {
         padding-top: 48px;
         padding-bottom: 48px
     }
-    .container .jumbotron,
-    .container-fluid .jumbotron {
+    .container, container1 .jumbotron,
+    .container, container-fluid .jumbotron {
         padding-right: 60px;
         padding-left: 60px
     }
@@ -7779,10 +7779,10 @@ button.close {
 .btn-toolbar:before,
 .clearfix:after,
 .clearfix:before,
-.container-fluid:after,
-.container-fluid:before,
-.container:after,
-.container:before,
+.container, container-fluid:after,
+.container, container-fluid:before,
+.container, container1:after,
+.container, container1:before,
 .dl-horizontal dd:after,
 .dl-horizontal dd:before,
 .form-horizontal .form-group:after,
@@ -7812,8 +7812,8 @@ button.close {
 .btn-group-vertical>.btn-group:after,
 .btn-toolbar:after,
 .clearfix:after,
-.container-fluid:after,
-.container:after,
+.container, container-fluid:after,
+.container, container1:after,
 .dl-horizontal dd:after,
 .form-horizontal .form-group:after,
 .modal-footer:after,
@@ -14803,7 +14803,7 @@ button.close {
     -webkit-backface-visibility: hidden
 }
 
-.mfp-container {
+.mfp-container, container1 {
     text-align: center;
     position: absolute;
     width: 100%;
@@ -14814,14 +14814,14 @@ button.close {
     box-sizing: border-box
 }
 
-.mfp-container:before {
+.mfp-container, container1:before {
     content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle
 }
 
-.mfp-align-top .mfp-container:before {
+.mfp-align-top .mfp-container, container1:before {
     display: none
 }
 
@@ -15208,7 +15208,7 @@ screen and (max-height:300px) {
         -webkit-transform-origin: 100%;
         transform-origin: 100%
     }
-    .mfp-container {
+    .mfp-container, container1 {
         padding-left: 6px;
         padding-right: 6px
     }
@@ -15732,7 +15732,7 @@ label {
     line-height: 34px
 }
 
-.intro-section .container {
+.intro-section .container, container1 {
     overflow: hidden
 }
 /*--- [ 7. our-services ] ---*/
@@ -15921,7 +15921,7 @@ label {
   overflow: hidden;
   padding: 93px 0 50px;
 }
-.testimonial-section .container {
+.testimonial-section .container, container1 {
     overflow: hidden
 }
 .testimonial {
@@ -16526,7 +16526,7 @@ article.post-entry:after {
 .page-header ol.breadcrumb > .active,.page-header ol.breadcrumb a:hover {
   color: #fe0000;
 }
-.page-container {
+.page-container, container1 {
   margin: 0;
   padding: 100px 0;
 }
@@ -17767,7 +17767,7 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
 }
 
 @media only screen and (min-width:480px) and (max-width:767px) {
-    .container {
+    .container, container1 {
         width: 85%;
         margin-left: auto;
         margin-right: auto
@@ -17794,7 +17794,7 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
 }
 
 @media only screen and (min-width:568px) and (max-width:767px) {
-    .container {
+    .container, container1 {
         width: 80%;
         margin-left: auto;
         margin-right: auto
@@ -18026,7 +18026,7 @@ a#scrollUp:hover {
         padding-bottom: 15px;
         height: 70px
     }
-    .navbar-default .container {
+    .navbar-default .container, container1 {
         width: 100%;
         padding-right: 15px;
         padding-left: 15px
@@ -18153,7 +18153,7 @@ a#scrollUp:hover {
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
-.container {width:300px}
+.container, container1 {width:300px}
 .navbar-default .navbar-brand {
   padding-bottom: 15px;
   padding-top: 7px;
@@ -18230,7 +18230,7 @@ section.banner-section {
  
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-.container {width:450px}
+.container, container1 {width:450px}
  
 .banner-section .inner > h2 {
   font-size: 28px;
@@ -18246,6 +18246,13 @@ section.banner-section {
   padding: 50px 28px;
 }
 
+}
+
+@media only screen and (max-width:767px){
+    .container, container1 {
+        margin-left: 100px;
+        object-fit: cover;
+    }
 }
 
 
@@ -18377,7 +18384,7 @@ html body .bg-megna {
   margin: 0 auto;
   width: 70%;
 }
-.container-fluid .section-title > p {
+.container, container-fluid .section-title > p {
   margin: 0 auto;
   width: 44%;
 }
@@ -18600,7 +18607,7 @@ html body .bg-megna {
     margin-top: -117px;
 }
 
-.container1 {
+.container, container1 {
         width: 1500px;
     }
 
@@ -18659,7 +18666,7 @@ html body .bg-megna {
   position: relative;
   transition: all 300ms linear 0s;
 }
-.container-fluid .section-title > p {
+.container, container-fluid .section-title > p {
   margin: 0 auto;
   width: 68%;
 }
@@ -18757,7 +18764,7 @@ section.banner-section {
 .section-title h2 {
   font-size: 30px;
 }
-.container-fluid .section-title > p {
+.container, container-fluid .section-title > p {
   width: 87%;
 }
 .section-title {
