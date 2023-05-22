@@ -39,4 +39,9 @@ router.get("/post-press", async(req, res) => {
   res.render("users/post-press", { user: true, postpress });
 });
 
+router.get("/getaqoute", (req, res) => {
+  res.render("users/getaqoute", { user: true});
+})
+
+
 module.exports = router;
