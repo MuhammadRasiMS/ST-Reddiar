@@ -4293,7 +4293,7 @@ tbody.collapse.in {
 /*--- [ 3. nav Menu ] ---*/
 .dropdown,
 .dropup {
-    position: relative
+    position: relative;
 }
 
 .dropdown-toggle:focus {
@@ -4320,8 +4320,9 @@ tbody.collapse.in {
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175)
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+
 
 .dropdown-menu.pull-right {
     right: 0;
@@ -4342,7 +4343,7 @@ tbody.collapse.in {
     font-weight: 400;
     line-height: 1.42857143;
     color: #333;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .dropdown-menu>li>a:focus,
@@ -5525,7 +5526,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 @media(max-width:767px) {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-        color: #949494
+        color: #949494;
     }
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
@@ -18060,7 +18061,7 @@ a#scrollUp:hover {
         text-align: left 
     }
     #footer .widgetized-footer .footer-widget {
-        margin-bottom: 30px
+        margin-bottom: 30px;
     }
     .page-header ol.breadcrumb {
         display: none
