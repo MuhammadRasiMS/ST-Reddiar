@@ -28,7 +28,7 @@
                             color: #fff;
                         }
 
-                        input[type="text"],
+                        input[type="text"],input[type="email"],input[type="number"],
                         textarea {
                             width: 100%;
                             padding: 10px;
@@ -37,7 +37,7 @@
                             color: #fff;
                         }
 
-                        input[type="submit"] {
+                        button[type="submit"] {
                             background-color: #ff0000;
                             color: #fff;
                             border: none;
@@ -63,26 +63,28 @@
                     </style>
                 </head>
 
+
                 <div class="container" style="display: flex; flex-direction: column; align-items: center;">
                     <h1>Get a Quote</h1>
-                    <form action="https://formsubmit.co/streddiarprinters@gmail.com" method="POST">
+                    <form action="/getaqoute" method="POST">
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="Name" required>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="text" id="email" name="Email" required>
+                            <input type="email" id="email" name="from" required>
+                            <input type="email" id="email" name="to" value="streddiarprinters@gmail.com" hidden>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone:</label>
-                            <input type="text" id="phone" name="Phone" required>
+                            <input type="number" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message:</label>
-                            <textarea id="message" name="Message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <input type="submit" value="Submit">
+                        <button type="submit">SUBMIT</button>
                     </form>
                 </div>
             </div>
