@@ -17203,7 +17203,7 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
   margin-bottom: 30px;
 }
 
-#masonry-portfolio .gallery-item .gallery-desc h4.project-title {
+#masonry-portfolio .gallery-item .gallery-desc h4.project-title, h1.project-title {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -o-transform: translateY(0);
@@ -17228,7 +17228,7 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
     margin-bottom: 10px
 }
 
-#grid-portfolio .gallery-item .gallery-desc h4.project-title {
+#grid-portfolio .gallery-item .gallery-desc h4.project-title, h1.project-title {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -o-transform: translateY(0);
@@ -17252,7 +17252,7 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
 }
 
 .gallery-item .gallery-desc {
-  background-color: rgba(254, 0, 0, 0.7);
+  background-color: rgba(10, 10, 10, 0.5);
   height: 100%;
   left: 0;
   margin: 0;
@@ -17296,6 +17296,18 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
 
 .gallery-item .gallery-desc h4.project-title {
   color: #fff;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0;
+  margin: 0 0 20px;
+  text-transform: capitalize;
+  transform: translateY(0px);
+  transition: all 0.5s ease 0s;
+}
+
+.gallery-item .gallery-desc h1.project-title {
+  font-size: 40px;
+  color: #fff;
   font-weight: 600;
   letter-spacing: 0;
   margin: 0 0 20px;
@@ -17303,6 +17315,7 @@ ul.filter-list li:hover, ul.filter-list li:focus, ul.filter-list li.active-filte
   transform: translateY(0px);
   transition: all 0.5s ease 0s;
 }
+
 .gallery-item .gallery-img {
     margin: 0;
     padding: 0
